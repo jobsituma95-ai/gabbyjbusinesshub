@@ -24,7 +24,7 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       color: var(--black);
       background: var(--white);
@@ -40,11 +40,13 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
+      letter-spacing: 1px;
     }
 
     .logo span {
@@ -56,10 +58,13 @@
       text-decoration: none;
       margin-left: 20px;
       font-weight: bold;
+      transition: 0.3s;
     }
 
     nav a:hover {
       color: var(--green);
+      border-bottom: 2px solid var(--green);
+      padding-bottom: 5px;
     }
 
     .hero {
@@ -75,6 +80,18 @@
 
     .hero-content {
       max-width: 750px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero h1 {
@@ -117,6 +134,7 @@
     .btn-primary:hover {
       background: var(--dark-green);
       transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(15, 157, 88, 0.4);
     }
 
     .btn-secondary {
@@ -127,6 +145,7 @@
     .btn-secondary:hover {
       background: #a91f1f;
       transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(214, 40, 40, 0.4);
     }
 
     section {
@@ -177,7 +196,7 @@
       border-radius: 10px;
       border-top: 5px solid var(--green);
       box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
-      transition: transform .3s;
+      transition: transform .3s, box-shadow .3s;
     }
 
     .service-card:hover {
@@ -215,6 +234,7 @@
       gap: 30px;
       max-width: 1000px;
       margin: auto;
+      margin-bottom: 50px;
     }
 
     .contact-box {
@@ -250,6 +270,87 @@
       color: #ccc;
     }
 
+    /* Contact Form Styles */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #1d1d1d;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #333;
+      border-radius: 6px;
+      background: #252525;
+      color: var(--white);
+      font-family: Arial, sans-serif;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 10px rgba(15, 157, 88, 0.3);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 12px;
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+
+    .form-submit:hover {
+      background: var(--dark-green);
+      transform: scale(1.02);
+    }
+
+    .form-message {
+      text-align: center;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 6px;
+      display: none;
+    }
+
+    .form-message.success {
+      background: #0f9d58;
+      color: var(--white);
+    }
+
+    .form-message.error {
+      background: var(--red);
+      color: var(--white);
+    }
+
     footer {
       background: var(--black);
       color: var(--white);
@@ -260,6 +361,37 @@
 
     footer p {
       margin: 5px 0;
+    }
+
+    /* Scroll to Top Button */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      transition: 0.3s;
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .scroll-to-top:hover {
+      background: var(--dark-green);
+      transform: scale(1.1);
+    }
+
+    .scroll-to-top.show {
+      display: flex;
     }
 
     @media (max-width: 768px) {
@@ -293,6 +425,10 @@
 
       .section-title h2 {
         font-size: 1.8rem;
+      }
+
+      .contact-form {
+        padding: 30px 20px;
       }
     }
   </style>
@@ -342,27 +478,27 @@
     </div>
     <div class="services">
       <div class="service-card">
-        <h3>Cybersecurity</h3>
+        <h3>🔒 Cybersecurity</h3>
         <p>Protect your business with advanced security solutions, threat assessment, and compliance management tailored to your industry.</p>
       </div>
       <div class="service-card">
-        <h3>Computer Training</h3>
+        <h3>💻 Computer Training</h3>
         <p>Professional training programs covering software, coding, and digital literacy to enhance your team's capabilities.</p>
       </div>
       <div class="service-card">
-        <h3>IT Solutions</h3>
+        <h3>⚙️ IT Solutions</h3>
         <p>End-to-end IT infrastructure, cloud services, and technical support to keep your operations running smoothly.</p>
       </div>
       <div class="service-card">
-        <h3>Real Estate Advisory</h3>
+        <h3>🏠 Real Estate Advisory</h3>
         <p>Expert guidance on property investment, commercial real estate, and strategic property management solutions.</p>
       </div>
       <div class="service-card">
-        <h3>Digital Transformation</h3>
+        <h3>🚀 Digital Transformation</h3>
         <p>Strategic consulting to modernize your business processes and leverage digital technologies for competitive advantage.</p>
       </div>
       <div class="service-card">
-        <h3>Business Consulting</h3>
+        <h3>📊 Business Consulting</h3>
         <p>Data-driven insights and strategic planning to optimize operations and accelerate business growth.</p>
       </div>
     </div>
@@ -376,21 +512,46 @@
     </div>
     <div class="contact-container">
       <div class="contact-box">
-        <h3>Email</h3>
+        <h3>📧 Email</h3>
         <p><a href="mailto:info@gabbyjbusinesshub.com">info@gabbyjbusinesshub.com</a></p>
         <p><a href="mailto:support@gabbyjbusinesshub.com">support@gabbyjbusinesshub.com</a></p>
       </div>
       <div class="contact-box">
-        <h3>Phone</h3>
+        <h3>📞 Phone</h3>
         <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
         <p><a href="tel:+1234567891">+1 (234) 567-891</a></p>
       </div>
       <div class="contact-box">
-        <h3>Address</h3>
+        <h3>📍 Address</h3>
         <p>123 Business Avenue</p>
         <p>Suite 500, Tech City, TC 12345</p>
         <p>United States</p>
       </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h3 style="color: var(--green); margin-bottom: 20px; text-align: center;">Send us a Message</h3>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required placeholder="How can we help?">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Tell us more about your inquiry..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+        <div class="form-message" id="formMessage"></div>
+      </form>
     </div>
   </section>
 
@@ -399,5 +560,89 @@
     <p>&copy; 2024 GabbyJ Business Hub. All rights reserved.</p>
     <p>Empowering businesses through technology and expertise.</p>
   </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+  <script>
+    // Contact Form Handler
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      // Validate form
+      if (!name || !email || !subject || !message) {
+        showMessage('Please fill in all fields', 'error');
+        return;
+      }
+
+      // Validate email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showMessage('Please enter a valid email address', 'error');
+        return;
+      }
+
+      // Simulate form submission (In production, this would send to a server)
+      const mailtoLink = `mailto:info@gabbyjbusinesshub.com?subject=${encodeURIComponent(subject)}&body=Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
+      
+      window.location.href = mailtoLink;
+      showMessage('Thank you! Your message will be sent shortly.', 'success');
+      contactForm.reset();
+      
+      // Hide message after 3 seconds
+      setTimeout(() => {
+        formMessage.style.display = 'none';
+      }, 3000);
+    });
+
+    function showMessage(text, type) {
+      formMessage.textContent = text;
+      formMessage.className = `form-message ${type}`;
+      formMessage.style.display = 'block';
+    }
+
+    // Scroll to Top Button
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('show');
+      } else {
+        scrollToTopBtn.classList.remove('show');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
