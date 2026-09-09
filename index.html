@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GabbyJ Business Hub offers cyber, computer training, IT, real estate and digital business services." />
+  <title>GabbyJ Business Hub</title>
+
+  <style>
+    :root {
+      --black: #101010;
+      --green: #0f9d58;
+      --red: #d62828;
+      --white: #ffffff;
+      --light: #f4f7f5;
+      --dark-green: #087443;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--black);
+      background: var(--white);
+    }
+
+    header {
+      background: var(--black);
+      color: var(--white);
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--green);
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      padding: 70px 7%;
+      color: var(--white);
+      background:
+        linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)),
+        linear-gradient(135deg, var(--green), var(--black));
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--green);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--dark-green);
+      transform: scale(1.05);
+    }
+
+    .btn-secondary {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: #a91f1f;
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 70px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: var(--black);
+    }
+
+    .section-title p {
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    .about {
+      background: var(--light);
+      text-align: center;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 28px;
+      border-radius: 10px;
+      border-top: 5px solid var(--green);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+      transition: transform .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+    }
+
+    .service-card h3 {
+      color: var(--black);
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .service-card p {
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .contact {
+      color: var(--white);
+      background: var(--black);
+    }
+
+    .contact .section-title h2 {
+      color: var(--white);
+    }
+
+    .contact .section-title p {
+      color: #ddd;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .contact-box {
+      padding: 25px;
+      border-left: 4px solid var(--green);
+      background: #1d1d1d;
+      border-radius: 6px;
+      transition: .3s;
+    }
+
+    .contact-box:hover {
+      transform: translateX(5px);
+      background: #252525;
+    }
+
+    .contact-box h3 {
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .contact-box a {
+      color: var(--white);
+      text-decoration: none;
+      transition: .3s;
+    }
+
+    .contact-box a:hover {
+      color: var(--green);
+    }
+
+    .contact-box p {
+      margin: 5px 0;
+      color: #ccc;
+    }
+
+    footer {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 25px 7%;
+      border-top: 2px solid var(--green);
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin-left: 10px;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        min-height: 60vh;
+        padding: 50px 5%;
+      }
+
+      section {
+        padding: 50px 5%;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header/Navigation -->
+  <header>
+    <div class="logo">Gabby<span>J</span></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to <span>GabbyJ</span> Business Hub</h1>
+      <p>Your trusted partner for cyber security, professional training, IT solutions, real estate advisory, and comprehensive digital business services.</p>
+      <div class="buttons">
+        <a href="#services" class="btn btn-primary">Explore Services</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="section-title">
+      <h2>About Us</h2>
+      <p>Building success through expertise and innovation</p>
+    </div>
+    <div class="about-content">
+      <p>
+        At GabbyJ Business Hub, we are committed to empowering businesses and individuals with cutting-edge solutions in cybersecurity, professional training, IT infrastructure, real estate guidance, and digital transformation. With years of industry experience, our team delivers tailored services designed to meet your unique business needs and propel your organization forward.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Comprehensive solutions for your business growth</p>
+    </div>
+    <div class="services">
+      <div class="service-card">
+        <h3>Cybersecurity</h3>
+        <p>Protect your business with advanced security solutions, threat assessment, and compliance management tailored to your industry.</p>
+      </div>
+      <div class="service-card">
+        <h3>Computer Training</h3>
+        <p>Professional training programs covering software, coding, and digital literacy to enhance your team's capabilities.</p>
+      </div>
+      <div class="service-card">
+        <h3>IT Solutions</h3>
+        <p>End-to-end IT infrastructure, cloud services, and technical support to keep your operations running smoothly.</p>
+      </div>
+      <div class="service-card">
+        <h3>Real Estate Advisory</h3>
+        <p>Expert guidance on property investment, commercial real estate, and strategic property management solutions.</p>
+      </div>
+      <div class="service-card">
+        <h3>Digital Transformation</h3>
+        <p>Strategic consulting to modernize your business processes and leverage digital technologies for competitive advantage.</p>
+      </div>
+      <div class="service-card">
+        <h3>Business Consulting</h3>
+        <p>Data-driven insights and strategic planning to optimize operations and accelerate business growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="section-title">
+      <h2>Get in Touch</h2>
+      <p>We'd love to hear from you. Reach out today!</p>
+    </div>
+    <div class="contact-container">
+      <div class="contact-box">
+        <h3>Email</h3>
+        <p><a href="mailto:info@gabbyjbusinesshub.com">info@gabbyjbusinesshub.com</a></p>
+        <p><a href="mailto:support@gabbyjbusinesshub.com">support@gabbyjbusinesshub.com</a></p>
+      </div>
+      <div class="contact-box">
+        <h3>Phone</h3>
+        <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+        <p><a href="tel:+1234567891">+1 (234) 567-891</a></p>
+      </div>
+      <div class="contact-box">
+        <h3>Address</h3>
+        <p>123 Business Avenue</p>
+        <p>Suite 500, Tech City, TC 12345</p>
+        <p>United States</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 GabbyJ Business Hub. All rights reserved.</p>
+    <p>Empowering businesses through technology and expertise.</p>
+  </footer>
+</body>
+</html>
